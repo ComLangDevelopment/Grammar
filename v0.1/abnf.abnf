@@ -11,7 +11,11 @@
                         ; basic rules definition and
                         ;  incremental alternatives
 
- elements       =  alternation *c-wsp
+
+
+ elements       =  difference *c-wsp
+
+ difference    = alternative [*c-wsp "-" alternation]
 
  c-wsp          =  WSP / (c-nl WSP)
 

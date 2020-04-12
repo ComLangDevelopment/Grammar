@@ -1,0 +1,15 @@
+type = <IDENT> / integer-type / float-type / array-type / tuple-type / never-type / function-type / pointer-type
+    / reference-type / slice-type / str-type / bool-type
+KEYWORD /= integer-type / float-type / bool-type
+integer-type = "i8" / "u8" / "i16" / "u16" / "i32" / "u32" / "i64" / "u64" / "i128" / "u128" / "isize" / "usize"
+float-type = "f32" / "f64"
+bool-type = "bool"
+array-type = "[" type ";" expr "]"
+slice-type = "[" type "]"
+str-type   = "str"
+tuple-type = "(" [type *("," type)] ")"
+never-type = "!"
+abi-specifier = "extern" [string-literal]
+function-type = (["const"] [abi-specifier]  0*(decorator)) tuple-type ["->" type]
+pointer-type = "*" ["mut" / "const"] type
+reference-type = "&" ["mut"] type

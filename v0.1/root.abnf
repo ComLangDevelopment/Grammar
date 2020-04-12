@@ -1,7 +1,12 @@
 DIGIT = %x30-39
+HEXDIGIT = <DIGIT> / %x41-46 / %x61-66
 LETTER = %x41-5a / %x61-7a
 WS = %x01-20
 ESCAPE = "\"
 <"> = %x22
 <'> = %x31
 ANYCHAR = Any Valid Unicode character except for \ " or ', or characters with Code Points 127 or in the range 0-31
+ASCIICHAR = %x20 / %x21 / %x23-5b / %x5d-7e
+IDENTSTART = "_" / "$" / <LETTER>
+IDENTPART = <IDENTSTART> / <DIGIT>
+IDENT = (<IDENTSTART> 0*<IDENTPART>) - <KEYWORD>

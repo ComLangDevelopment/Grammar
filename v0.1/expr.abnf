@@ -1,0 +1,12 @@
+dec-lit = [-] *<DIGIT> [integer-type]
+    ; Yes, [-] **HAS** to be part of the literal
+    ; otherwise there is one integer value (for each singed integer type) which cannot be written as a literal
+hex-lit = [-] "0x" *<HEXDIGIT> [integer-type]
+float-lit = [-] *<DIGIT> ["." *<DIGIT>] [e [+/-] *<DIGIT>] [float-type]
+escape = "\" [n / t / r / u "{" *4<HEXDIGIT> "}"]
+byte-escape = "\" [n / t/ r / *3<DIGIT> / "x" *2<HEXDIGIT>]
+char-lit = "'" (<ANYCHAR> / <"> / escape ) "'"
+bchar-lit = "b'" [<ASCIICHAR> / <"> / byte-escape ] "'"
+str-lit = <"> 0*(<ANYCHAR> / escape) <">
+bstr-lit = "b"<"> [<ASCIICHAR> / byte-escape] <">
+bool-lit = "true" / "false"
