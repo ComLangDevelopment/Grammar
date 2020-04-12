@@ -1,0 +1,7 @@
+DIGIT = %x30-39
+LETTER = %x41-5a / %x61-7a
+WS = %x01-20
+ESCAPE = "\"
+<"> = %x22
+<'> = %x31
+ANYCHAR = Any Valid Unicode character except for \ " or ', or characters with Code Points 127 or in the range 0-31
